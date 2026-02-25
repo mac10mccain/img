@@ -19,6 +19,11 @@ def run_async(coro):
         loop.close()
 
 
+@app.route("/wake", methods=["GET"])
+def wake():
+    return jsonify({"status": "awake"})
+
+
 @app.route("/research", methods=["POST"])
 def research():
     body = request.get_json(silent=True)
